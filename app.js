@@ -4,7 +4,7 @@ const sqlite3 = require("sqlite3");
 const path = require("path");
 const bcrypt = require("bcrypt");
 
-const databasePath = path.join(__dirname, userData.db);
+const databasePath = path.join(__dirname, 'userData.db');
 
 const app = express();
 app.use(express.json());
@@ -76,7 +76,7 @@ if(databaseUser===undefined){
     response.status(400);
     response.send("Invalid User");
 } else{
-    const isPasswordMatched=await.bcrypt.compare(
+    const isPasswordMatched=await bcrypt.compare(
         password,
         databaseUser.password
     );
